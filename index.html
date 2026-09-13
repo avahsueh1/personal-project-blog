@@ -691,6 +691,10 @@
     .contact { background: #f3dce6; color: #77435b; }
     .contact-links a { color: #86435f; }
     .about { grid-template-columns: 0.7fr 1.5fr; }
+    .about-visual { min-width: 0; }
+    .about .about-visual .section-kicker { font-size: 0.74rem; margin-bottom: 26px; }
+    .portrait-frame { margin: 0; padding: 12px; background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: 12px 14px 0 #f3e1ea; max-width: 360px; }
+    .portrait-frame img { display: block; width: 100%; height: auto; border-radius: 15px; }
     .about h2 { margin-bottom: 30px; color: #9b456b; }
     .about .about-copy p { font-size: 1.12rem; line-height: 1.9; margin: 0 0 20px; }
     .about .about-copy .about-intro { font-size: 1.4rem; line-height: 1.6; }
@@ -898,7 +902,12 @@
     </section>
 
     <section class="section about" id="about">
-      <p class="section-kicker reveal">04 / About me</p>
+      <div class="about-visual reveal">
+        <p class="section-kicker">04 / About me</p>
+        <figure class="portrait-frame">
+          <img src="assets/ava-portrait.jpg" alt="Ava holding a puppy outdoors." width="1350" height="1800" loading="lazy" decoding="async">
+        </figure>
+      </div>
       <div class="about-copy reveal">
         <h2>Hi, I'm Ava.</h2>
         <p class="about-intro">I'm a UCLA student based in Solana Beach, California.</p>
