@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ava Hsueh builds software and AI systems for real-world workflows.">
+  <meta name="description" content="Ava Hsueh's personal corner for math, learning, and building thoughtful software. UCLA student exploring software and AI engineering.">
   <title>Ava Hsueh | Software and AI Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #111310;
-      --paper: #f4f4ef;
+      --ink: #49333f;
+      --paper: #fff9f7;
       --paper-strong: #ffffff;
-      --muted: #686c66;
-      --line: #cfd1ca;
-      --acid: #c8ff3d;
-      --blue: #3568ff;
+      --muted: #786370;
+      --line: #ead7df;
+      --acid: #f4c8d9;
+      --blue: #9b456b;
       --header-height: 72px;
     }
 
@@ -667,6 +667,38 @@
       .screenshot-card { padding: 18px 18px 0; }
     }
 
+    /* Personal palette: rose lettering, blush paper, and lavender accents. */
+    .site-header { background: #fff9f7ee; color: var(--ink); border-color: var(--line); }
+    .brand-dot, .nav-links a:hover, .nav-links a:focus-visible { color: #9b456b; }
+    .hero { background: radial-gradient(ellipse at 90% 20%, #e9e1f2, transparent 60%), linear-gradient(120deg, #fff6f2, #f9e2e9); color: var(--ink); }
+    .hero::before { opacity: 0.22; background-image: linear-gradient(#d6bdcb 1px, transparent 1px), linear-gradient(90deg, #d6bdcb 1px, transparent 1px); background-size: 64px 64px; }
+    h1, h2 { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; }
+    h1 { color: #a74470; }
+    .kicker { color: #92506e; }
+    .hero-body { color: #715967; }
+    .hero-statement { font-size: clamp(1.4rem, 2.5vw, 2.2rem); line-height: 1.3; }
+    .button { border-color: #d6a9bd; border-radius: 999px; }
+    .button.primary { background: #9b456b; border-color: #9b456b; color: white; }
+    .button:hover, .button:focus-visible { background: #f4dbe6; color: #49333f; }
+    .orbit { border-color: #c49abb; }
+    .orbit::before, .orbit::after { background: #b9799c; box-shadow: 0 0 24px #d9b6d2; }
+    .node { background: #fff9fc; color: #715268; border-color: #e4c5d7; border-radius: 14px; box-shadow: 0 16px 40px #91678015; }
+    .node-core { background: #eed9ec; color: #745173; }
+    .connector { background: #cbaec7; }
+    .status, .project-featured .status { background: #f6e4ed; color: #834665; }
+    .direction-band { background: #eee5f4; color: #574361; }
+    .direction-band .section-kicker, .direction-small { color: #73617b; }
+    .contact { background: #f3dce6; color: #77435b; }
+    .contact-links a { color: #86435f; }
+    .about { grid-template-columns: 0.7fr 1.5fr; }
+    .about h2 { margin-bottom: 30px; color: #9b456b; }
+    .about .about-copy p { font-size: 1.12rem; line-height: 1.9; margin: 0 0 20px; }
+    .about .about-copy .about-intro { font-size: 1.4rem; line-height: 1.6; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .about-tags span { background: #f4e9ef; border: 1px solid #ead7df; padding: 9px 15px; border-radius: 999px; color: #80546e; font-size: 0.8rem; }
+    @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .nav-links { background: #fff9f7; border-color: var(--line); } }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -698,13 +730,13 @@
     <section class="hero" id="home">
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="kicker">Software engineering / AI systems</p>
+          <p class="kicker">A little math, a lot of curiosity</p>
           <h1>Ava<br>Hsueh</h1>
-          <p class="hero-statement">Building software and AI systems for real-world workflows.</p>
-          <p class="hero-body">I am a UCLA student focused on full-stack development, agentic AI, and the engineering that turns ideas into useful products.</p>
+          <p class="hero-statement">Learning something new.<br>Building something that matters.</p>
+          <p class="hero-body">Hi, I'm Ava—a UCLA student who loves math, learning, and a good challenge. This is my little corner of the internet to share what I'm building and what I'm figuring out along the way.</p>
           <div class="hero-actions">
             <a class="button primary" href="#work">View selected work</a>
-            <a class="button" href="https://github.com/avahsueh1" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="button" href="#about">A little about me</a>
           </div>
         </div>
 
@@ -714,11 +746,11 @@
           <span class="connector b"></span>
           <span class="connector c"></span>
           <span class="connector d"></span>
-          <div class="node node-core">AGENT LOOP</div>
-          <div class="node node-one">CONTEXT</div>
-          <div class="node node-two">TOOLS</div>
-          <div class="node node-three">MEMORY</div>
-          <div class="node node-four">ACTION</div>
+          <div class="node node-core">STAY CURIOUS</div>
+          <div class="node node-one">MATH</div>
+          <div class="node node-two">BUILD</div>
+          <div class="node node-three">LEARN</div>
+          <div class="node node-four">EXPLORE</div>
         </div>
       </div>
     </section>
@@ -726,7 +758,7 @@
     <section class="section" id="work">
       <div class="section-heading reveal">
         <p class="section-kicker">01 / Selected work</p>
-        <h2>Projects built to answer real questions.</h2>
+        <h2>Things I've been<br>learning by building.</h2>
       </div>
 
       <div class="project-list">
@@ -833,11 +865,11 @@
       <div class="section reveal">
         <div>
           <p class="section-kicker">02 / Current direction</p>
-          <h2>Agentic workflows, built with engineering discipline.</h2>
+          <h2>Following my curiosity into AI.</h2>
         </div>
         <div>
-          <p class="direction-copy">I am exploring how agents use context, tools, memory, and feedback to complete useful work across real applications.</p>
-          <p class="direction-small">The goal is not AI for its own sake. I am interested in reliable systems that connect models to product interfaces, data, and human decisions.</p>
+          <p class="direction-copy">I'm drawn to the space where math, software, and AI meet. I want to understand how these systems work—and learn how to build them thoughtfully.</p>
+          <p class="direction-small">From fine-tuning a language model to connecting an app to real data, each project gives me a new question to work through. I enjoy that stretch: trying, getting stuck, and gradually figuring it out.</p>
         </div>
       </div>
     </section>
@@ -868,14 +900,21 @@
     </section>
 
     <section class="section about" id="about">
-      <p class="section-kicker reveal">04 / About</p>
-      <p class="reveal">I study Statistics &amp; Data Science and Mathematics of Computation at UCLA, with graduation expected in June 2028. My work spans full-stack products, data pipelines, quantitative models, and agentic automation. I like connecting technical details to a clear purpose: helping someone research, understand, or get something done.</p>
+      <p class="section-kicker reveal">04 / A little about me</p>
+      <div class="about-copy reveal">
+        <h2>Hi, I'm Ava.</h2>
+        <p class="about-intro">A UCLA student with a home base in Solana Beach, California, a love of math, and a curiosity that keeps leading me to new projects.</p>
+        <p>I study Mathematics of Computation and Statistics &amp; Data Science, with graduation expected in June 2028. I enjoy learning how things work, finding patterns, and sitting with a challenging problem until the pieces start to make sense.</p>
+        <p>I aspire to become a software and AI engineer, building useful products while deepening my understanding of the math behind them. My projects are part of that journey: opportunities to experiment, ask better questions, and challenge myself to learn something I couldn't do before.</p>
+        <p>This space is a record of that process. Some projects are still growing, and so am I.</p>
+        <div class="about-tags"><span>Solana Beach, CA</span><span>UCLA · Class of 2028</span><span>Math &amp; lifelong learning</span><span>Always up for a challenge</span></div>
+      </div>
     </section>
   </main>
 
   <footer class="contact" id="contact">
     <div class="section reveal">
-      <h2>Let's build something useful.</h2>
+      <h2>Let's make<br>something meaningful.</h2>
       <div class="contact-links">
         <a href="mailto:avahsueh1@ucla.edu">Email</a>
         <a href="https://www.linkedin.com/in/avahsueh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
