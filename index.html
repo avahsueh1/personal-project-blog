@@ -367,7 +367,8 @@
       transition: padding 220ms ease, background 220ms ease;
     }
 
-    .project:hover { padding-left: 18px; padding-right: 18px; background: var(--paper-strong); }
+    .project:hover { background: var(--paper-strong); }
+    section[id], article[id] { scroll-margin-top: calc(var(--header-height) + 24px); }
 
     .project-index { color: var(--muted); }
 
@@ -407,6 +408,30 @@
       font-weight: 700;
       border-bottom: 1px solid var(--ink);
       padding-bottom: 4px;
+    }
+
+    .project-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .project-detail { grid-column: 2 / -1; min-width: 0; }
+    .project-detail summary { cursor: pointer; font-size: 0.85rem; font-weight: 700; padding: 10px 0; }
+    .project-detail summary:focus-visible, .load-preview:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    .project-story { border-left: 3px solid var(--blue); padding: 8px 22px; margin: 16px 0 24px; }
+    .project-story p { max-width: 780px; }
+    .project-story .story-heading { color: var(--ink); font-weight: 800; margin-bottom: 8px; }
+    .preview-shell { border: 1px solid var(--line); background: white; margin-top: 20px; }
+    .preview-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 14px 18px; background: #e8eae2; font: 0.75rem "DM Mono", monospace; overflow-wrap: anywhere; }
+    .preview-content { padding: 30px; }
+    .load-preview { background: var(--ink); color: var(--paper); border: 0; padding: 15px 20px; font: inherit; cursor: pointer; }
+    .project .preview-help { margin-top: 14px; font-size: 0.8rem; }
+    .preview-content iframe { width: 100%; height: 560px; display: block; border: 0; background: var(--paper); }
+    @media (max-width: 1050px) {
+      .project { grid-template-columns: 42px minmax(0, 1fr); }
+      .project-description, .project-actions, .project-detail { grid-column: 2; }
+      .project-actions { flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      .preview-content { padding: 14px; }
+      .preview-content iframe { height: 460px; }
+      .project-detail { grid-column: 1 / -1; }
     }
 
     .direction-band {
@@ -541,7 +566,7 @@
         grid-template-columns: 50px 1fr 1.4fr;
       }
 
-      .project-link { display: none; }
+      .project-link { display: inline-block; }
       .direction-band .section,
       .about,
       .contact .section { grid-template-columns: 1fr; }
@@ -609,6 +634,39 @@
       .contact .section { gap: 42px; }
     }
 
+    .training-facts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .training-facts > div { flex: 1 1 110px; border: 1px solid #dcd8e9; border-radius: 10px; padding: 14px; background: #efedf6; }
+    .training-facts strong { display: block; font-size: 1.45rem; color: #50406c; }
+    .training-facts span { display: block; margin-top: 6px; font-size: 0.68rem; color: #635a73; }
+    .project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; border-bottom: 0; }
+    .project { grid-column: 1 / -1; }
+    .project-featured { grid-column: auto; display: flex; flex-direction: column; align-items: stretch; gap: 24px; padding: 0 0 26px; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff; box-shadow: 0 8px 30px #11131006; }
+    .project-featured:hover { padding: 0 0 26px; }
+    .project-featured > :not(.screenshot-card) { margin-left: 28px; margin-right: 28px; }
+    .project-featured h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+    .project-featured .project-description { flex: 1; }
+    .project-featured .project-actions { display: flex; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+    .project-featured .status { background: #edf1e6; color: #405039; font-size: 0.64rem; border-radius: 4px; }
+    .project-featured .project-detail { border-top: 1px solid var(--line); padding-top: 12px; }
+    .project-identity { display: flex; align-items: center; gap: 16px; }
+    .project-logo { flex-shrink: 0; width: 56px; height: 56px; object-fit: contain; }
+    .nourish-wordmark { font: 1.35rem Georgia, serif; letter-spacing: -1px; color: #755a4c; background: #f4ece7; width: 72px; height: 56px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; }
+    .screenshot-card { display: block; text-decoration: none; padding: 24px 24px 0; }
+    .finance-shot { background: linear-gradient(140deg, #d9e7e2, #edf0e8); }
+    .nourish-shot { background: linear-gradient(140deg, #efdfd4, #f4eae5); }
+    .screenshot-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 1px solid #0000000d; border-bottom: 0; border-radius: 9px 9px 0 0; background: #ffffffd9; padding: 10px 12px; color: #666c63; font: 0.65rem "DM Mono", monospace; }
+    .window-dots { font-size: 0.55rem; color: #b8beb4; letter-spacing: 2px; }
+    .project-screenshot { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; border: 1px solid #0000000d; border-radius: 0 0 6px 6px; box-shadow: 0 14px 28px #2d3b3020; transition: filter 180ms ease; }
+    .screenshot-card:hover .project-screenshot { filter: brightness(1.025); }
+    .screenshot-card:focus-visible { outline: 3px solid var(--blue); outline-offset: -4px; }
+    .screenshot-caption { display: flex; justify-content: space-between; gap: 12px; padding: 20px 0; color: #526257; font: 0.62rem "DM Mono", monospace; }
+    @media (max-width: 780px) {
+      .project-list { grid-template-columns: minmax(0, 1fr); }
+      .project-featured { grid-column: 1; }
+      .project-featured > :not(.screenshot-card) { margin-left: 20px; margin-right: 20px; }
+      .screenshot-card { padding: 18px 18px 0; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -629,7 +687,7 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#work">Work</a></li>
         <li><a href="#direction">AI Direction</a></li>
-        <li><a href="#notes">Notes</a></li>
+        <li><a href="#notes">Experience</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -671,43 +729,102 @@
         <h2>Projects built to answer real questions.</h2>
       </div>
 
-      <div class="project-list reveal">
-        <article class="project">
-          <span class="project-index">01</span>
-          <div>
-            <h3>Brighter Finance</h3>
-            <span class="status">In progress</span>
-          </div>
-          <div class="project-description">
-            <p>A full-stack finance and news application focused on the Tesla, SpaceX, and Starlink ecosystem, currently supporting five users.</p>
-            <span class="project-tech">Next.js / Supabase / SQL / Testing</span>
-          </div>
-          <a class="project-link" href="#contact">Ask about it</a>
+      <div class="project-list">
+        <article class="project project-featured reveal" id="brighter-finance">
+          <a class="screenshot-card finance-shot" href="assets/brighter-finance-screen.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size Brighter Finance screenshot">
+            <div class="screenshot-toolbar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>brighterfinance.co</span><span aria-hidden="true">↗</span></div>
+            <img class="project-screenshot" src="assets/brighter-finance-screen.png" alt="Brighter Finance public demo showing the Tesla dashboard and robotaxi rollout map." width="1270" height="714" loading="lazy">
+            <span class="screenshot-caption">PUBLIC DEMO <span>View screenshot ↗</span></span>
+          </a>
+          <div class="project-identity"><img class="project-logo" src="assets/brighter-finance-logo.svg" alt="" width="56" height="56"><div><h3>Brighter Finance</h3><span class="status">In progress · Mandalena LLC</span></div></div>
+          <div class="project-description"><p>I build a finance research application that brings market data, news, and SEC filings into one place. My work includes React interfaces, relational data models, API integrations, and a fleet dashboard with city selection and keyboard-accessible markers.</p><span class="project-tech">React / Next.js / TypeScript / Supabase / Python</span></div>
+          <div class="project-actions"><a class="project-link" href="https://brighterfinance.co/demo" target="_blank" rel="noopener noreferrer">Open demo ↗</a></div>
+          <details class="project-detail">
+            <summary>Behind the build</summary>
+            <div class="project-story"><p class="story-heading">From scattered sources to a useful research workflow</p><p>The fleet interface presents dated source information so users can distinguish reported vehicle counts from live activity. I also built a maintenance planner that identifies pending work and produces review reports.</p></div>
+          </details>
         </article>
-
-        <article class="project">
-          <span class="project-index">02</span>
-          <div>
-            <h3>Calorie Tracker</h3>
-            <span class="status">In progress</span>
-          </div>
-          <div class="project-description">
-            <p>A calorie-tracking application developed as part of my ongoing work in full-stack product engineering.</p>
-            <span class="project-tech">Full-stack application development</span>
-          </div>
-          <a class="project-link" href="#contact">Ask about it</a>
+        <article class="project project-featured reveal" id="nourishme">
+          <a class="screenshot-card nourish-shot" href="assets/nourishme-screen.png" target="_blank" rel="noopener noreferrer" aria-label="View full-size NourishMe screenshot">
+            <div class="screenshot-toolbar"><span class="window-dots" aria-hidden="true">● ● ●</span><span>nourishme.lol</span><span aria-hidden="true">↗</span></div>
+            <img class="project-screenshot" src="assets/nourishme-screen.png" alt="Nourish nutrition dashboard with daily energy, nutrient totals, and a wellness check-in." width="1280" height="720" loading="lazy">
+            <span class="screenshot-caption">APP PREVIEW <span>View screenshot ↗</span></span>
+          </a>
+          <div class="project-identity"><span class="nourish-wordmark" aria-label="Nourish">Nourish</span><div><h3>NourishMe</h3><span class="status">Active development</span></div></div>
+          <div class="project-description"><p>A mobile-first nutrition and wellness app with food logging, symptom-entry workflows, and persistent records. I refine the experience through usability feedback and deploy the application on AWS Amplify.</p><span class="project-tech">Next.js / TypeScript / Supabase / USDA food data</span></div>
+          <div class="project-actions"><a class="project-link" href="https://www.nourishme.lol/" target="_blank" rel="noopener noreferrer">Open website ↗</a><a class="project-link" href="https://github.com/avahsueh1/calorie-track-app" target="_blank" rel="noopener noreferrer">View code ↗</a></div>
+          <details class="project-detail">
+            <summary>Behind the build</summary>
+            <div class="project-story"><p class="story-heading">A daily workflow, from food entry to saved records</p><p>This project connects a user-facing interface with food data and a relational backend. Recent work includes custom-domain setup and improvements to logging and entry workflows.</p></div>
+          </details>
         </article>
-
-        <article class="project">
+        <article class="project reveal" id="qwen-sft">
           <span class="project-index">03</span>
-          <div>
-            <h3>Yelp QSR Analytics</h3>
-          </div>
+          <div><h3>Qwen Reasoning<br>Fine-Tuning</h3><span class="status">Independent ML project</span></div>
           <div class="project-description">
-            <p>A Python ETL pipeline that processes more than six million Yelp reviews with Parquet storage, automated validation, and NLP analysis.</p>
-            <span class="project-tech">Python / Parquet / ETL / NLP</span>
+            <p>I fine-tuned Qwen3-4B with supervised fine-tuning (SFT) and QLoRA to investigate mathematical reasoning under limited GPU memory. I evaluated the trained model on a separate 220-question math benchmark unseen during training.</p>
+            <span class="project-tech">Python / PyTorch / Hugging Face Transformers / PEFT / TRL / LoRA &amp; QLoRA</span>
+            <div class="training-facts" aria-label="Training and evaluation scope">
+              <div><strong>4B</strong><span>Model parameters</span></div>
+              <div><strong>&lt;5 GB</strong><span>Training VRAM</span></div>
+              <div><strong>220</strong><span>Unseen math questions</span></div>
+            </div>
           </div>
-          <a class="project-link" href="#contact">Ask about it</a>
+          <div class="project-actions"><a class="project-link" href="mailto:avahsueh1@ucla.edu?subject=Qwen%20SFT%20project">Discuss the project ↗</a></div>
+          <details class="project-detail">
+            <summary>Behind the experiment</summary>
+            <div class="project-story"><p class="story-heading">Targeted training → adapter fine-tuning → held-out evaluation</p><p>I used QLoRA for the fine-tuning experiment, with a separate evaluation set to investigate whether targeted training helps mathematical reasoning. The project connects memory-efficient training with evaluation on questions excluded from the training data.</p></div>
+          </details>
+        </article>
+        <article class="project reveal" id="mealstretch">
+          <span class="project-index">04</span>
+          <div><h3>MealStretch</h3><span class="status">Ongoing contribution</span></div>
+          <div class="project-description"><p>I contribute to a food-support platform spanning a NestJS backend, an administrative application, and a progressive web app. My work focuses on backend workflows, debugging, and coordinating local services.</p><span class="project-tech">NestJS / TypeScript / PostgreSQL / Hasura</span></div>
+          <div class="project-actions"><a class="project-link" href="mailto:avahsueh1@ucla.edu?subject=MealStretch%20project">Get in touch ↗</a></div>
+          <details class="project-detail">
+            <summary>Explore project details</summary>
+            <div class="project-story"><p class="story-heading">Working across the API, admin tools, and web app</p><p>The system brings together PostgreSQL, Hasura, and Redis with the backend and frontend applications. My contribution includes workflow validation and improving maintainability across the existing codebase.</p></div>
+          </details>
+        </article>
+        <article class="project reveal" id="yelp">
+          <span class="project-index">05</span>
+          <div><h3>Yelp QSR Analytics</h3><span class="status">Independent project</span></div>
+          <div class="project-description"><p>An ETL and analytics pipeline for 6M+ Yelp reviews, turning unstructured review text into insights about restaurant service, food quality, and customer sentiment.</p><span class="project-tech">Python / R / Parquet / NLP</span></div>
+          <div class="project-actions"><a class="project-link" href="https://github.com/avahsueh1/yelp-qsr-business-analysis" target="_blank" rel="noopener noreferrer">View code ↗</a></div>
+          <details class="project-detail">
+            <summary>Explore project details</summary>
+            <div class="project-story"><p class="story-heading">Raw reviews → Parquet → validation → analysis</p><p>Moving from raw JSON to Parquet reduced query latency by more than 60% in my project workflow. Automated checks flag null text, spam, and anomalies before downstream sentiment and topic analysis.</p></div>
+          </details>
+        </article>
+        <article class="project reveal" id="options">
+          <span class="project-index">06</span>
+          <div><h3>Options Backtesting</h3><span class="status">Independent project</span></div>
+          <div class="project-description"><p>A modular Python engine exploring a wheel strategy with cash-secured puts and covered calls across seven years of AAPL data. It combines pricing approximations, position sizing, and validation.</p><span class="project-tech">Python / Black-Scholes / Simulation / Backtesting</span></div>
+          <div class="project-actions"><a class="project-link" href="https://github.com/avahsueh1/options-backtesting" target="_blank" rel="noopener noreferrer">View code ↗</a></div>
+          <details class="project-detail">
+            <summary>Explore project details</summary>
+            <div class="project-story"><p class="story-heading">Market history → pricing → strategy → evaluation</p><p>I modeled reinvestment, position sizing, and profit-target rolls to compare a simulated strategy with buy-and-hold. These are historical model experiments, not live trading performance. Brighter Finance integration is planned.</p></div>
+          </details>
+        </article>
+        <article class="project reveal" id="boundless">
+          <span class="project-index">07</span>
+          <div><h3>Boundless</h3><span class="status">In progress</span></div>
+          <div class="project-description"><p>An early full-stack product built with Next.js and Supabase, translating a product concept into frontend workflows, persistent records, and a relational data layer.</p><span class="project-tech">Next.js / Supabase / SQL</span></div>
+          <div class="project-actions"><a class="project-link" href="mailto:avahsueh1@ucla.edu?subject=Boundless%20project">Get in touch ↗</a></div>
+          <details class="project-detail">
+            <summary>Explore project details</summary>
+            <div class="project-story"><p class="story-heading">Product concept → interface → persistent data</p><p>My work on Boundless develops the connection between user-facing interactions and database-backed application behavior. The product is still in development.</p></div>
+          </details>
+        </article>
+        <article class="project reveal" id="automation">
+          <span class="project-index">08</span>
+          <div><h3>Agentic Workflow Automation</h3><span class="status">Art with Francis</span></div>
+          <div class="project-description"><p>I build MCP-connected workflows for content drafting, coordination, and file organization, keeping human review in the process. The work has saved an estimated 100 hours of manual effort.</p><span class="project-tech">MCP / Codex / Claude Code / Workflow validation</span></div>
+          <div class="project-actions"><a class="project-link" href="mailto:avahsueh1@ucla.edu?subject=Agentic%20Workflow%20Automation%20project">Get in touch ↗</a></div>
+          <details class="project-detail">
+            <summary>Explore project details</summary>
+            <div class="project-story"><p class="story-heading">Context → tools → draft → human review</p><p>I test multi-step processes, inspect their outputs, and refine how the steps connect. The focus is useful automation with review points that keep the final content accountable.</p></div>
+          </details>
         </article>
       </div>
     </section>
@@ -727,32 +844,32 @@
 
     <section class="section" id="notes">
       <div class="section-heading reveal">
-        <p class="section-kicker">03 / Engineering notes</p>
-        <h2>What I learn while building.</h2>
+        <p class="section-kicker">03 / Beyond the code</p>
+        <h2>Research, leadership, and creative work.</h2>
       </div>
 
       <div class="notes-grid reveal">
-        <a class="note" href="#contact">
-          <span class="note-meta">Full-stack systems</span>
-          <h3>Architecture, testing, and shipping usable products</h3>
-          <p>Notes on turning product ideas into maintainable software.</p>
-        </a>
-        <a class="note" href="#contact">
-          <span class="note-meta">Agentic AI</span>
-          <h3>Tools, memory, orchestration, and evaluation</h3>
-          <p>Experiments in making agent workflows more capable and reliable.</p>
-        </a>
-        <a class="note" href="#contact">
-          <span class="note-meta">Data engineering</span>
-          <h3>Working with large, messy datasets</h3>
-          <p>Lessons from pipelines, validation, storage, and analysis.</p>
-        </a>
+        <article class="note">
+          <span class="note-meta">Providence Consulting at UCLA</span>
+          <h3>Leading a team from questions to recommendations</h3>
+          <p>As Director of Client Relations and Project Lead, I led a five-person team through a 10-week client engagement, combining stakeholder interviews and quantitative analysis into recommendations.</p>
+        </article>
+        <article class="note">
+          <span class="note-meta">UCSD OPALS / Research intern</span>
+          <h3>Reproducible analysis for biomedical research</h3>
+          <p>I built MATLAB workflows for axonal segmentation and calcium-response analysis across 100+ cell images, and co-authored a poster presented at the Biomedical Engineering Society conference.</p>
+        </article>
+        <article class="note">
+          <span class="note-meta">Blockchain at UCLA</span>
+          <h3>Connecting technical communities through design</h3>
+          <p>As Marketing and Design Officer, I develop data-informed digital campaigns and social outreach to increase club visibility.</p>
+        </article>
       </div>
     </section>
 
     <section class="section about" id="about">
       <p class="section-kicker reveal">04 / About</p>
-      <p class="reveal">I study Statistics &amp; Data Science and Mathematics of Computation at UCLA. I am building toward software and AI engineering roles through full-stack products, quantitative systems, and self-directed technical work.</p>
+      <p class="reveal">I study Statistics &amp; Data Science and Mathematics of Computation at UCLA, with graduation expected in June 2028. My work spans full-stack products, data pipelines, quantitative models, and agentic automation. I like connecting technical details to a clear purpose: helping someone research, understand, or get something done.</p>
     </section>
   </main>
 
